@@ -145,8 +145,6 @@
     </style>
   </head>
   <body>
-    <button class="close-button" id="close-btn">×</button>
-
     <div class="search-container">
       <input
         type="text"
@@ -168,7 +166,6 @@
       const searchButton = document.getElementById("searchButton");
       const resultsContainer = document.getElementById("resultsContainer");
       const initialMessage = document.getElementById("initialMessage");
-      const closeBtn = document.getElementById("close-btn");
 
       let currentResults = [];
 
@@ -198,17 +195,6 @@
         if (e.key === "Enter") {
           executeSearch();
         }
-      });
-
-      closeBtn.addEventListener("click", () => {
-        parent.postMessage(
-          {
-            pluginMessage: {
-              type: "close-plugin",
-            },
-          },
-          "*"
-        );
       });
 
       // 検索結果の表示
